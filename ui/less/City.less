@@ -1,0 +1,125 @@
+@border-color-city: #d7d7d7;
+@font-color-city: #2B2B2B;
+@prefix-city: ui-city;
+
+.@{prefix-city} {
+    margin-right: 18px;
+    font-size: 13px;
+    background: #FFF;
+    width: 113px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid @border-color-city;
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: bottom;
+}
+.@{prefix-city}-box {
+    cursor: pointer;
+}
+.@{prefix-city}-value {
+    display: inline-block;
+    padding: 2px 0 2px 15px;
+    color: @font-color-city;
+    *display: inline;
+    *zoom: 1;
+}
+.@{prefix-city}-shadow {
+    background: 
+        #fbfbfb 
+        url(http://s1.bdstatic.com/r/www/cache/static/global/img/icons_aea40f46.png) 
+        no-repeat -402px 5px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: absolute;
+    border-left: 1px solid @border-color-city;
+    right: 0;
+    top: 0;
+}
+
+.@{prefix-city}-show {
+    display: none;
+    background: #FFF;
+    top: 24px;
+    left: -1px;
+    width: 350px;
+    border: 1px solid #BBBBBB;
+    padding: 5px 10px 0 10px;
+    cursor: default;
+    position: absolute;
+    label {
+        color: #666;
+        margin-left: -2px;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        em {
+            color: #0000cc;
+            padding-left: 10px;
+        }
+    }
+    ul {
+        margin: 5px 0 5px 0;
+        border-top: 1px solid #d8d8d8;
+        li {
+            display: inline-block;
+            padding: 3px 0;
+            width: 80px;
+            margin: 2px 0 2px 5px;
+            cursor: pointer;
+            *display: inline;
+            *zoom: 1;
+            color: #0000cc;
+            span {
+                padding: 0 7px;
+                &:hover {
+                    background: #388BFF;
+                    color: #FFF;
+                }
+            }
+            
+        }
+        li.@{prefix-city}-remen {
+            width: 55px;
+        }
+    }
+}
+
+.@{prefix-city}-tabs {
+    border-top: 1px solid #d8d8d8;
+    padding: 5px 0 5px 1px;
+    a {
+        display: inline-block;
+        font-family: "Arial";
+        font-size: 14px;
+        text-align: center;
+        width: 21px;
+        padding: 0;
+        margin-right: 10px;
+        color: #0000cc;
+        cursor: pointer;
+        *display: inline;
+        *zoom: 1;
+
+        &:hover {
+            background: #CCC;
+            color: #FFF;
+        }
+    }
+    a:active {
+        background: #388BFF;
+        color: #FFF;
+    }
+    .@{prefix-city}-select {
+        background: #388BFF;
+        color: #FFF;
+    }
+    .@{prefix-city}-select:hover {
+        background: #388BFF;
+        color: #FFF;
+    }
+}
