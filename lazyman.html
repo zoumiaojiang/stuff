@@ -35,37 +35,24 @@
             }
 
             obj.sleep = function (time) {
-                queen.push({
-                    type: 'sleep',
-                    time: time
-                })
+                queen.push({ type: 'sleep', time: time })
                 return this;
             };
 
             obj.sleepFirst = function (time) {
-                queen.reverse().push({
-                    type: 'sleep',
-                    time: time
-                });
-                queen.reverse();
+                queen.unshift({ type: 'sleep', time: time });
                 return this;
             };
 
             obj.eat = function (food) {
-                queen.push({
-                    method: eat,
-                    args: Array.prototype.slice.call(arguments)
-                });
+                queen.push({ method: eat, args: Array.prototype.slice.call(arguments) });
                 overDo(queen);
                 queen = [];
                 return this;
             };
 
             obj.showName = function (name) {
-                queen.push({
-                    method: showName,
-                    args: Array.prototype.slice.call(arguments)
-                })
+                queen.push({ method: showName, args: Array.prototype.slice.call(arguments) })
                 return this;
             }
 
