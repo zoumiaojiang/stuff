@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LazyMan</title>
+    <script type="text/javascript">
+
+        function LazyMan(name) {
+            var obj = {};
+            var queen = [];
+
+            var showName = function (name) {
+                console.log('Hi, this is', name);
+            };
+
+            var eat = function (food) {
+                console.log('Eat', food, '~');
+            };
+
+            function overDo(q) {
+                if (q && q.length >= 0) {
+                    for (var i = 0; i < q.length; i++) {
+                        var item = q[i];
+                        if (item.type === 'sleep') {
+                            console.log('Wake up after', item.time);
+                            setTimeout(function () {
+                                overDo(q.slice(i + 1));
+                            }, item.time * 1000);
+                            break;
+                        }
+                        else {
+                            item.method.apply(this, item.args);
+                        }
+                    }
+                }
+            }
+
+            obj.sleep = function (time) {
+                queen.push({
+                    type: 'sleep',
+                    time: time
+                })
+                return this;
+            };
+
+            obj.sleepFirst = function (time) {
+                queen.reverse().push({
+                    type: 'sleep',
+                    time: time
+                });
+                queen.reverse();
+                return this;
+            };
+
+            obj.eat = function (food) {
+                queen.push({
+                    method: eat,
+                    args: Array.prototype.slice.call(arguments)
+                });
+                overDo(queen);
+                queen = [];
+                return this;
+            };
+
+            obj.showName = function (name) {
+                queen.push({
+                    method: showName,
+                    args: Array.prototype.slice.call(arguments)
+                })
+                return this;
+            }
+
+            obj.showName(name);
+            return obj;
+        }
+
+        //LazyMan('Hank').sleep(5).eat('dinner');
+        //LazyMan('Hank').eat('dinner').eat('supper');
+        LazyMan('Hank').sleepFirst(5).eat('supper');
+
+    </script>
+</head>
+<body>
+</body>
+</html>

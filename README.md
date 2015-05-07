@@ -1,12 +1,3 @@
 stuff
 =====
-
-```
-work stuff
-```
-
-### 组件整理
-
-### 文档整理
-
-### 工具整理
+ something intresting
