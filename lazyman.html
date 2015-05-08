@@ -46,8 +46,6 @@
 
             obj.eat = function (food) {
                 queen.push({ method: eat, args: Array.prototype.slice.call(arguments) });
-                overDo(queen);
-                queen = [];
                 return this;
             };
 
@@ -57,9 +55,11 @@
             }
 
             obj.showName(name);
+            setTimeout(function () {overDo(queen);}, 0);
             return obj;
         }
 
+        //LazyMan('Hank');
         //LazyMan('Hank').sleep(5).eat('dinner');
         //LazyMan('Hank').eat('dinner').eat('supper');
         LazyMan('Hank').sleepFirst(5).eat('supper');
