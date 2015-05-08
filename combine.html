@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>combine</title>
+    <script type="text/javascript">
+
+        // input: ['A', 'B', 'C']
+        // output:[‘ABC', 'ACB', 'BAC', 'BCA', 'CBA', 'CAB']
+        
+        function combine(arr) {
+            var ret = [];
+            var len = arr.length;
+            function exchange(a, b) {
+                var t = arr[a];
+                arr[a] = arr[b];
+                arr[b] = t;
+            }
+
+            function recur(arr, idx) {
+                var item = arr[idx];
+                if (idx == len) {
+                    ret.unshift(arr.join(''));
+                }
+                else {
+                    for (var i = idx; i < len; i++) {
+                        exchange(idx, i);
+                        recur(arr, idx + 1);
+                        exchange(idx, i);
+                    }
+                }
+            }
+            recur(arr, 0);
+            return ret;
+        }
+
+        var result = combine(['A', 'B', 'C', 'D', 'E']);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
